@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "nw": "./node_modules/.bin/nightwatch"
+    "nw": "./node_modules/.bin/nightwatch",
+    "p": "./node_modules/.bin/protractor"
   },
   "repository": {
     "type": "git",
