@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nw": "./node_modules/.bin/nightwatch"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,9 @@
   },
   "homepage": "https://github.com/Galilee/vt-tests-e2e#readme",
   "devDependencies": {
+    "finalhandler": "^0.4.1",
     "nightwatch": "^0.8.18",
-    "protractor": "^3.1.1"
+    "protractor": "^3.1.1",
+    "serve-static": "^1.10.2"
   }
 }
