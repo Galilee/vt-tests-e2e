@@ -1,4 +1,6 @@
-require('./../server.test');
+'use strict';
+
+require('./../../server.test')('./nightwatch/public');
 
 module.exports = {
   'Demo application loaded': function (client) {
