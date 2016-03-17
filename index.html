@@ -17,7 +17,7 @@
         <h2 class="title">Tests END TO END</h2>
         <div class="content">
           <p><i>Explications et utilisation</i></p>
-          <p><strong><a href="http://nightwatchjs.org">Nightwatch</a></strong> (Classique) / <strong><a href="https://angular.github.io/protractor/#/">Protractor</a></strong> (AngularJS)</p>
+          <p><strong><a href="http://nightwatchjs.org">Nightwatch</a> & <a href="http://docs.casperjs.org/">CasperJS</a></strong> (Classique) / <strong><a href="https://angular.github.io/protractor/#/">Protractor</a></strong> (AngularJS)</p>
           <img data-src="end2end.jpg">
         </div>
         <p><small><a href="https://github.com/ubikz">Ubikz.</a> _ 17 février 2016 - by <strong>Galilée</strong></small></p>
@@ -77,26 +77,100 @@
         </div>
       </section>
       <section>
-        <h3 class="title">3 - Installation</h3>
-        <div class="content">
-          <ul>
-            <li class="main">Installation de <a href="https://nodejs.org/en/">NodeJS</a></li>
-            <li class="main">Installation de <strong>Protractor</strong> pour du <strong>AngularJS</strong>
-              <ul class="no-style">
-                <li class="second"><pre><code class="sh">npm install -g protractor</code></pre></li>
-              </ul>
-            </li>
-            <li class="main">Installation de <strong>Nightwatch</strong>
-              <ul class="no-style">
-                <li class="second">Téléchargement du
-                  <a href="https://selenium-release.storage.googleapis.com/index.html"></a> pour le server <strong>Selenium</strong></li>
-                <li class="second"><pre><code class="sh">npm install -g nightwatch</code></pre></li>
-              </ul>
-            </li>
-            <li class="main">Création des tests et configuration des outils</li>
-          </ul>
-        </div>
-      </section>
+        <section>
+          <h3 class="title">3 - Installation des pré-requis (1/4)</h3>
+          <div class="content">
+            <ul>
+              <li class="main">Installation de <a href="https://nodejs.org/en/">NodeJS</a></li>
+              <li class="main">Utilisation du gestionnaire dépendances <strong>NPM</strong></li>
+              <li class="main">Téléchargement des drivers <strong>Selenimum</strong> et <strong>Chrome</strong> pour <u>Protractor</u> et <u>NightWatch</u>
+                <ul>
+                  <li class="second">Téléchargement du
+                    <a href="https://selenium-release.storage.googleapis.com/index.html">driver</a> pour le server <strong>Selenium</strong>
+                  </li>
+                  <li class="second">Téléchargement du
+                    <a href="http://chromedriver.storage.googleapis.com/index.html">driver</a> pour intégrer <strong>Chrome</strong>
+                  </li>
+                  <li class="second"><strong>Déjà fournis dans le repository<pre><code>./bin/</code></pre></strong></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="title">3 - Installation de Protractor (2/4)</h3>
+          <div class="content">
+            <ul>
+              <li class="main">Installation de <strong>Protractor</strong> pour du <strong>AngularJS</strong>
+                <ul class="no-style">
+                  <li class="second"><pre><code class="sh">npm install -g protractor</code></pre></li>
+                </ul>
+              </li>
+              <li class="main">Mise en place de la configuration avec les drivers</li>
+              <li class="no-style">
+                <pre><code class="js">module.exports.config = {
+  framework: 'jasmine',
+  specs: ['protractor/tests/**/*.js'],
+  seleniumServerJar: './bin/selenium-server-standalone-2.52.0.jar',
+  chromeDriver: './bin/chromedriver',
+  capabilities: {
+    'browserName': 'chrome'
+  },
+}</code></pre>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="title">3 - Installation de NightWatch (3/4)</h3>
+          <div class="content">
+            <ul>
+              <li class="main">Installation de <strong>NightWatch</strong>
+                <ul class="no-style">
+                  <li class="second"><pre><code class="sh">npm install -g nightwatch</code></pre></li>
+                </ul>
+              </li>
+              <li class="main">Mise en place de la configuration avec les drivers</li>
+              <li class="no-style">
+                <pre><code class="json">{
+  "src_folders" : ["nightwatch/tests"],
+  "output_folder" : "nightwatch-reports",
+  "selenium" : {
+    "start_process" : true,
+    "server_path" : "./bin/selenium-server-standalone-2.52.0.jar",
+    "cli_args" : {
+      "webdriver.chrome.driver" : "./bin/chromedriver",
+    }
+  }
+}</code></pre>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="title">3 - Installation de CasperJS (4/4)</h3>
+          <div class="content">
+            <ul>
+              <li class="main">Installation de <strong>CasperJS</strong>
+                <ul class="no-style">
+                  <li class="second"><pre><code class="sh">npm install -g casperjs</code></pre></li>
+                </ul>
+              </li>
+              <li class="main">Pas de drivers</li>
+              <li class="main">Utilisation de <strong><a href="http://phantomjs.org/">PhantomJS</a> <i>pour WebKit</i></strong>
+                <ul class="no-style">
+                  <li class="second"><pre><code class="sh">npm install -g phantomjs</code></pre></li>
+                </ul>
+              </li>
+              <li class="main">Utilisation de <strong><a href="http://phantomjs.org/">SlimmerJS</a> <i>pour firefox</i></strong>
+                <ul class="no-style">
+                  <li class="second"><pre><code class="sh">npm install -g slimmerjs</code></pre></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>      
       <section>
         <h3 class="title">4 - Exemples</h3>
         <div class="content">
