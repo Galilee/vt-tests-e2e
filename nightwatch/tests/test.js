@@ -11,7 +11,7 @@ module.exports = {
     client.expect.element('body').to.be.visible;
     client.assert.title('Test WatchNight');
     client.setValue('input[type=text]', 'test')
-    client.click('a[id=submit]');
+    client.click('button');
     client.expect.element('#list li').to.be.visible;
     client.end();
   },
